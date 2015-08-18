@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Etiquette</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">1022454481098401</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_splash">Etiquette</string>
+
+</resources>

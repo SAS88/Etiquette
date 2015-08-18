@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+    <LinearLayout
+    android:weightSum="10"
+    android:orientation="horizontal"
+    android:id="@+id/az"
+    tools:context="pk.edu.pucit.mian.loginapp.IntroSlider"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/leftswipe"/>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/centerarea">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/plane_"/>
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/travel_text"
+        android:paddingTop="20dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:maxWidth="250dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:lines="5"/>
+
+</LinearLayout>
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/rightswipe"/>
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="pk.edu.pucit.mian.loginapp.LoginFragment"
+
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView22"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/sign_in_text"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView23"
+        android:layout_below="@+id/imageView22"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:src="@drawable/logo" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_email"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/email"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/imageView23"
+        android:gravity="center"
+        android:hint="Phone Number/Email"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:maxLines="1"
+        android:maxLength="25" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_password"
+        android:layout_below="@+id/login_email"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/password"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:lines="1"
+        android:maxLines="1"
+        android:hint="Password"
+        android:maxLength="25"
+        android:singleLine="true"
+        android:password="true"
+        android:inputType="textPassword" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_button"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/sign_in_button"
+        android:layout_below="@+id/login_password"
+        android:layout_alignLeft="@+id/login_password"
+        android:layout_alignStart="@+id/login_password" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView24"
+        android:layout_below="@+id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:src="@drawable/sign_in_with"
+        android:layout_marginBottom="10dp"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/imageView24"
+    android:layout_alignLeft="@+id/login_button"
+    android:layout_alignStart="@+id/login_button"
+    android:layout_alignRight="@+id/login_button"
+    android:layout_alignEnd="@+id/login_button"
+    android:orientation="horizontal"
+    android:id="@+id/linearLayout2">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/facebook_login"
+        android:background="@drawable/fb"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/google_login"
+        android:background="@drawable/g_"
+
+        android:layout_marginLeft="20dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wechat_login"
+        android:background="@drawable/wechat"
+        android:layout_marginLeft="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weibo_login"
+        android:background="@drawable/weibo"
+        android:layout_marginLeft="20dp" />
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/goto_signup"
+        android:src="@drawable/dont_have_account"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+</RelativeLayout>

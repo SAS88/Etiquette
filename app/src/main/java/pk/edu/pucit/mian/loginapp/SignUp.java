@@ -27,10 +27,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -200,23 +197,4 @@ public class SignUp extends android.support.v4.app.Fragment implements
             }
         }
     }
-
-    private String convertInputStreamToString(InputStream inputStream){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
-        String line;
-        String result = "";
-
-        try {
-            while ((line = reader.readLine()) != null){
-                result += line;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
-
 }

@@ -55,6 +55,8 @@ public class Introduction extends android.support.v4.app.Fragment implements Vie
 
         IntroPagerAdapter defaultPagerAdapter = new IntroPagerAdapter(getChildFragmentManager());
         defaultViewpager.setAdapter(defaultPagerAdapter);
+        defaultViewpager.setClipToPadding(false);
+        defaultViewpager.setPadding(50, 0, 50, 0);
 
 
 

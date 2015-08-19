@@ -24,6 +24,8 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -139,8 +141,7 @@ public class SignUp extends android.support.v4.app.Fragment implements
             {
                 response = httpclient.execute(request);
 
-                InputStream inputStream = response.getEntity().getContent();
-                result = convertInputStreamToString(inputStream);
+                result = EntityUtils.toString(response.getEntity());
             }
             catch(SocketTimeoutException ex)
             {
@@ -167,11 +168,28 @@ public class SignUp extends android.support.v4.app.Fragment implements
             progressDialog.dismiss();
             progressDialog = null;
 
-            if(result.equals("\"Already Exist\""))
+            String message = "", status = "";
+            JSONObject object;
+
+
+            if(result.equals(""))
+            {
+                Toast.makeText(getActivity(), "Check Internet", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            try {
+                object = new JSONObject(result);
+                message = object.getString("message");
+            }
+            catch (Exception ex){}
+
+
+            if(message.equals("Already Exist"))
             {
                 Toast.makeText(getActivity(), "Account Already Exist", Toast.LENGTH_LONG).show();
             }
-            else if(result.equals("\"Signed up successfully\""))
+            else if(message.equals("Signed up successfully"))
             {
                 ProfileFragment newFrag = new ProfileFragment();
 
@@ -179,10 +197,6 @@ public class SignUp extends android.support.v4.app.Fragment implements
 
                 getActivity().getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 trans.replace(R.id.fragment_container, newFrag, "ProfileFragment").commit();
-            }
-            else if(result.equals(""))
-            {
-                Toast.makeText(getActivity(), "Check Internet", Toast.LENGTH_LONG).show();
             }
         }
     }

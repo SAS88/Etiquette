@@ -47,6 +47,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -419,8 +420,8 @@ public class LoginFragment extends android.support.v4.app.Fragment implements
             {
                 response = httpclient.execute(request);
 
-                InputStream inputStream = response.getEntity().getContent();
-                result = convertInputStreamToString(inputStream);
+                result = EntityUtils.toString(response.getEntity());
+
             }
             catch(SocketTimeoutException ex)
             {
@@ -447,11 +448,27 @@ public class LoginFragment extends android.support.v4.app.Fragment implements
             progressDialog.dismiss();
             progressDialog = null;
 
-            if(result.equals("\"Information is incorrect\""))
+            String message = "", status = "";
+            JSONObject object;
+
+            if(result.equals(""))
+            {
+                Toast.makeText(getActivity(), "Check Internet", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            try {
+                object = new JSONObject(result);
+                message = object.getString("message");
+            }
+            catch (Exception ex){}
+
+
+            if(message.equals("Information is incorrect"))
             {
                 Toast.makeText(getActivity(), "Incorrect email/password", Toast.LENGTH_LONG).show();
             }
-            else if(result.equals("\"Signed in successfully\""))
+            else if(message.equals("Signed in successfully"))
             {
                 Popular newFrag = new Popular();
 
@@ -459,11 +476,7 @@ public class LoginFragment extends android.support.v4.app.Fragment implements
                 getActivity().getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 trans.replace(R.id.fragment_container, newFrag, "PopularFragment").commit();
             }
-            else if(result.equals(""))
-            {
-                Toast.makeText(getActivity(), "Check Internet", Toast.LENGTH_LONG).show();
-            }
-            else if(result.equals("\"Signed in successfully, after Sign up\""))
+            else if(message.equals("Signed in successfully, after Sign up"))
             {
                 ProfileFragment newFrag = new ProfileFragment();
 

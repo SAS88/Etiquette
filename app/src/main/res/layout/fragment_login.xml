@@ -90,14 +90,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/facebook_login"
-        android:background="@drawable/fb"
+        android:background="@layout/fb_button"
         />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/google_login"
-        android:background="@drawable/g_"
+        android:background="@layout/google_button"
 
         android:layout_marginLeft="20dp"/>
 
@@ -105,14 +105,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/wechat_login"
-        android:background="@drawable/wechat"
+        android:background="@layout/wechat_button"
         android:layout_marginLeft="20dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weibo_login"
-        android:background="@drawable/weibo"
+        android:background="@layout/weibo_button"
         android:layout_marginLeft="20dp" />
 </LinearLayout>
 
